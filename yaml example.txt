@@ -1,4 +1,4 @@
 environment variables:
 
 		test-case:
-			Maven_opt: SENKStageTest
+			Maven_opt: SedenStageTest
