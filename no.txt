@@ -1,0 +1,31 @@
+job:on-schedule:
+  script: echo "Hello, Rules!"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+      
+    
+
+job:
+  script: echo "Hello, Rules!"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+    - if: "$CI_COMMIT_BRANCH"
+      when: never
+
+
+schedules:
+- cron: "0 2 * * *"
+  displayName: Scheduled everyday at time
+  branches:
+    include:
+    - main
+
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - main
